@@ -10,7 +10,7 @@ public class DiceGame {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the Grand Circus!");
         System.out.println("");
-        System.out.println("How many sides should each die have? ");
+        System.out.println("How many sides should each die have?");
         int numberSide = scan.nextInt();
         rollDice(numberSide);
 
@@ -22,9 +22,19 @@ public class DiceGame {
         int count = 1;
 
         while (repeatRoll.equalsIgnoreCase("y")) {
-            int dice = (int)(Math.random() * sides + 1);
             System.out.println("Roll " + count);
-            System.out.println(dice);
+            int die1 = (int) (Math.random() * sides + 1);
+            int die2 = (int) (Math.random() * sides + 1);
+            System.out.println(die1);
+            System.out.println(die2);
+            int rollerName = die1 + die2;
+            if(rollerName == 2){
+                System.out.println("Snake Eyes");
+            } else if(rollerName == 7 || rollerName == 11){
+                System.out.println("Craps");
+            } else if(rollerName == 12){
+                System.out.println("Box Car");
+            }
             System.out.println("Roll again? (y/n): ");
             repeatRoll = scan.next();
             count++;
